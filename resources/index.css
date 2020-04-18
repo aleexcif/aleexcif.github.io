@@ -4,19 +4,9 @@ html {
     font-family: 'Inter', sans-serif;
     position: absolute;
     min-height: 100vh;
-    padding: 8px;
-    overflow-x: hidden;
   }
 
-body {
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
 #header-logo {
-    position: absolute;
-    left: 5%;
-    top: 5%;
     font-size: 70px;
     font-weight: 600;
 }
@@ -38,5 +28,4 @@ body {
     height: 2.5rem;
     font-size: 14px;
     font-weight: 500;
-    background-color: #24292e;
 }

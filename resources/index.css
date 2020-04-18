@@ -6,6 +6,11 @@ html {
     min-height: 100vh;
   }
 
+body {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 #header-logo {
     font-size: 70px;
     font-weight: 600;

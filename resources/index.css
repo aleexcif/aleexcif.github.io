@@ -1,11 +1,8 @@
 html {
     position: relative;
     min-height: 100vh;
-  }
-
-main {
     font-family: 'Inter', sans-serif;
-}
+  }
 
 #title {
     font-size: large;

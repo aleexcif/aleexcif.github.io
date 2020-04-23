@@ -1,5 +1,5 @@
 html {
-    background-color: #24292e;
+    background-color: Black;
     color: Snow;
     font-family: 'Inter', sans-serif;
     position: relative;
@@ -27,6 +27,7 @@ body {
 }
 
 #footer {
+    color: Snow;
     position: absolute;
     bottom: 10;
     width: 100%;

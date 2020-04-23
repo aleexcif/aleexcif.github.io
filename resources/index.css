@@ -2,8 +2,10 @@ html {
     background-color: Black;
     color: Snow;
     font-family: 'Inter', sans-serif;
-    position: relative;
+    position: absolute;
     min-height: 100vh;
+    min-width: 100hv;
+    margin-left: 46px;
   }
 
 body {
@@ -27,14 +29,30 @@ body {
 }
 
 #footer {
-    position: absolute;
-    bottom: 10;
+    position: relative;
+    bottom: 0;
     width: 100%;
     height: 2.5rem;
     font-size: 14px;
     font-weight: 500;
 }
 
-footer#improve {
-    color: Snow !important;
+a {
+  color: DodgerBlue;
+}
+
+a:link {
+  color: DodgerBlue;
+}
+
+a:visited {
+ color: SlateGray;
+}
+
+a:focus {
+  color: DeepSkyBlue;
+}
+
+a:hover {
+  color: DeepSkyBlue;
 }

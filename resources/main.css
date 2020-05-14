@@ -91,7 +91,7 @@ body {
 .main {
 	min-height: calc(100vh - 84px);
 	padding-top: 60px;
-	padding-left: 84px;
+	padding-left: 74px;
 	margin-top: 0;
 	overflow: hidden;
 }
@@ -145,6 +145,7 @@ body {
 	text-decoration: none;
 	color: #ffffff;
 }
+
 @font-face {
  font-family:'octicons';
  src:url(https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/octicons/octicons/octicons-9c162bcbd21831c1c86623d8352a5b883d3d638b5b5e889caf9cf6817523c376.eot?#iefix) format("embedded-opentype"),

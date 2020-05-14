@@ -1,4 +1,7 @@
 @media only screen and (max-width:1080px) {
+  html {
+    font-size: 16px;
+  }
   .nav {
   	position: absolute;
     background-color: rgba(255,255,255,.1);
@@ -11,7 +14,7 @@
   }
 	.nav-logo {
 		position: relative;
-		top: 0px;
+    top: 10px;
 		left: 20px;
 		font-size: 50px;
 		font-weight: 900;
@@ -20,25 +23,31 @@
 		margin-top: 60px;
 		min-height: calc(100vh - 60px);
 		padding-top: 20px;
-		padding-left: 20px;
+		padding-left: 0px;
 		overflow: hidden;
 	}
 	.main-content {
-		margin-top: 0;
+		margin-top: 15px;
 		margin-right: auto;
 		margin-left: auto;
-		max-width: 1380px;
+    padding: 0 5px;
+		max-width: 1080px;
 	}
 	.main-content-header {
-		margin: 0;
-		padding: 0;
+    width: 100%;
+		margin-top: 36px;
+		padding: 20px 10px 0;
 	}
 	.header-title {
-		font-size: 56px;
+		font-size: 28px;
   	font-weight: 700;
   }
 	.header-intro {
-		font-size: 36px;
+    margin: 20px 0;
+		font-size: 20px;
 		font-weight: 400;
+  }
+  .header-intro p {
+    margin: 20px 0;
   }
 }

@@ -66,10 +66,6 @@ body {
 }
 
 .nav-logo {
-	position: absolute;
-	top: 20px;
-	left: 32px;
-	line-height: 0.7;
 	font-size: 60px;
 	font-weight: 900;
 }
@@ -87,11 +83,11 @@ body {
 	margin-top: 0;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 1380px;
 }
 
 .main-content-header {
-	width: 75%;
+	width: 100%;
+	max-width: 1000px;
 	margin-top: 84px;
 	margin-bottom: 40px;
 	-webkit-box-align: start;
@@ -110,14 +106,19 @@ body {
 }
 
 .header-intro {
+	max-width: 780px;
 	font-size: 36px;
 	font-weight: 400;
+}
+
+.header-intro p {
+	margin-top: 50px;
 }
 
 .footer {
 	position: absolute;
 	bottom: 0;
-	left: 32px;
+	left: 144px;
 }
 
 .footer-content{

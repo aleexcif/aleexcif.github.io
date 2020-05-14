@@ -13,11 +13,8 @@
   	z-index: 4;
   }
 	.nav-logo {
-		position: relative;
-    top: 10px;
-		left: 20px;
-		font-size: 50px;
-		font-weight: 900;
+		font-size: 36px;
+		font-weight: 400;
 	}
 	.main {
 		margin-top: 60px;

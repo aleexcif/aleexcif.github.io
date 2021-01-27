@@ -1,28 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="./resources/main.css" type="text/css" rel="stylesheet">
-		<link href="./resources/fonts.css" type="text/css" rel="stylesheet">
-		<link href="./resources/media-queries.css" type="text/css" rel="stylesheet">
-		<title>Alexander Cifuentes</title>
-	</head>
-	<body>
-		<video class="video-bg" playsinline autoplay muted loop>
-			<source src="https://res.cloudinary.com/aleexcif/video/upload/v1589938180/Sublimio_Home_boloke.mp4" type="video/mp4">
-		</video>
-		<div id="container">
-			<header>
-				<h1 id="logo">A</h1>
-			</header>
-			<main>
-				<h2 id="title">Hi! I'm Alexander Cifuentes</h2>
-				<p id="bio">I’m a front-end web development student at Codecademy currently focusing on HTML, CSS, and JavaScript.</p>
-			</main>
-			<footer>
-				<p id="foot">&copy; 2020</p>
-			</footer>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./resources/main.css" type="text/css" rel="stylesheet" />
+    <link href="./resources/fonts.css" type="text/css" rel="stylesheet" />
+    <link href="./resources/media-queries.css" type="text/css" rel="stylesheet" />
+    <title>Alexander Cifuentes</title>
+  </head>
+  <body>
+    <!-- Video background temporarily off
+    <video class="video-bg" playsinline autoplay muted loop>
+      <source src="https://res.cloudinary.com/aleexcif/video/upload/v1589938180/Sublimio_Home_boloke.mp4" type="video/mp4" />
+    </video> video background temporarily off -->
+    <div id="container">
+      <header>
+        <img id="logo" src=""/>
+      </header>
+      <main>
+        <h2 id="title">Hi! I'm Alexander Cifuentes</h2>
+        <p id="bio">
+          I’m a front-end web development student at Codecademy currently
+          focusing on HTML, CSS, and JavaScript.
+        </p>
+
+        <!-- Gumroad button starts here -->
+        <style>
+          .gumroad-follow-form-embed {
+            zoom: 1;
+          }
+          .gumroad-follow-form-embed:before,
+          .gumroad-follow-form-embed:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .gumroad-follow-form-embed:after {
+            clear: both;
+          }
+          .gumroad-follow-form-embed * {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            outline: 0;
+            box-sizing: border-box !important;
+            float: left !important;
+          }
+          .gumroad-follow-form-embed input {
+            border-radius: 4px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+              Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-right: 0;
+            color: #aaa;
+            padding: 10px;
+            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
+            background-position: top right;
+            background-repeat: no-repeat;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-appearance: none;
+            -moz-appearance: caret;
+            width: 65% !important;
+            height: 40px !important;
+          }
+          .gumroad-follow-form-embed button {
+            border-radius: 4px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+            -webkit-transition: all 0.05s ease-in-out;
+            transition: all 0.05s ease-in-out;
+            display: inline-block;
+            padding: 11px 15px 12px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 15px;
+            line-height: 100%;
+            font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+              Helvetica, Arial, sans-serif;
+            background: #36a9ae;
+            border: 1px solid #31989d;
+            filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#5ccfd4, endColorstr=#329ca1, GradientType=0)";
+            background: -webkit-linear-gradient(#5ccfd4, #329ca1);
+            background: linear-gradient(to bottom, #5ccfd4, #329ca1);
+            height: 40px !important;
+            width: 35% !important;
+          }
+        </style>
+        <form
+          action="https://gumroad.com/follow_from_embed_form"
+          class="form gumroad-follow-form-embed"
+          method="post"
+        >
+          <input name="seller_id" type="hidden" value="9300465019986" />
+          <input name="email" placeholder="Your email address" type="email" />
+          <button data-custom-highlight-color="" type="submit">Follow</button>
+        </form>
+        <!-- Gumroad button ends here -->
+      </main>
+      <footer>
+        <p id="foot">&copy; 2020</p>
+      </footer>
+    </div>
+  </body>
 </html>

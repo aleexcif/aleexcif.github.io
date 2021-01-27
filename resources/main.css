@@ -11,8 +11,8 @@ font-weight:
 
 html {
   font-family: 'MessinaSans', sans-serif;
-  font-weight: 400;
-  color: #fff;
+  font-weight: 300;
+  color: #f5f7fa;
   text-align: center;
 }
 
@@ -21,6 +21,7 @@ body {
   padding: 0;
   position: absolute;
   width: 100%;
+  max-width: 1200px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -28,18 +29,38 @@ body {
   background-color: #0b0c0d;
 }
 
-video { 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  transform: translateX(-50%) translateY(-50%);
-  background-size: cover;
-  transition: 1s opacity;
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: block;
+  color: #656D78
+}
+
+a {
+  color: #00c1a1;
+  text-decoration: none;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
+.about {
+  color: f5f7fa;
+  font-weight: 400 !important;
+  max-width: 840px;
+  font-size: 22px;
+}
+
+.section {
+  margin-bottom: 100px;
+}
+
+.newsletter {
+  max-width: 500px;
+  margin-top: 40px;
 }
 
 #container {
@@ -52,23 +73,8 @@ video {
 }
 
 #logo {
-	padding: 20px 0;
-	font-size: 5.2rem;
-	font-weight: 700;
-}
-
-#title {
-	padding: 30px 0 0 0;
-	font-size: 2.05rem;
-	font-weight: 700;
-}
-
-#bio {
-	padding: 45px 0 0 0;
-	font-size: 1.5rem;
-	font-weight: 500;
-	max-width: 600px;
-	line-height: 2.5rem;
+  padding: 20px 0;
+  max-height: 14px;
 }
 
 footer {

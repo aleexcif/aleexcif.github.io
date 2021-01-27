@@ -10,7 +10,7 @@ font-weight:
 */
 
 html {
-  font-family: 'MessinaSans', sans-serif;
+  font-family: "MessinaSans", sans-serif;
   font-weight: 300;
   color: #f5f7fa;
   text-align: center;
@@ -32,9 +32,18 @@ body {
 header {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 60px 0px;
   display: block;
-  color: #656D78
+  color: #656d78;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 1.6em;
 }
 
 a {
@@ -45,6 +54,17 @@ a {
 .site-branding {
   display: flex;
   align-items: center;
+}
+
+#container {
+  max-width: 1200px;
+  margin: 0px 100px;
+}
+
+.content-area {
+  float: left;
+  width: 100%;
+  max-width: 900px;
 }
 
 .about {
@@ -59,13 +79,25 @@ a {
 }
 
 .newsletter {
-  max-width: 500px;
-  margin-top: 40px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  background: #30353d;
+  color: #f5f7fa;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  max-width: 130px;
+  padding: 12px 24px;
+}
+
+.join {
+  color: #f5f7fa;
 }
 
 #container {
-	height: 100vh;
-	padding: 0 40px;
+  height: 100vh;
+  padding: 0 40px;
   text-align: left;
   position: absolute;
   left: 0;
@@ -77,9 +109,23 @@ a {
   max-height: 14px;
 }
 
+.news {
+  max-width: 500px;
+  margin-top: 40px;
+}
+
+.section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #aab2bd;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
 footer {
-	position: absolute;
-	bottom: 21px;
-	font-size: .6rem;
-	letter-spacing: 0.15em;
+  position: absolute;
+  bottom: 20px;
+  color: #656d78;
+  font-size: 14px;
 }

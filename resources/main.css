@@ -21,7 +21,6 @@ body {
   padding: 0;
   position: absolute;
   width: 100%;
-  max-width: 1200px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -32,6 +31,7 @@ body {
 header {
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 60px;
   display: block;
   color: #656d78;
 }
@@ -43,6 +43,10 @@ h5,
 h6,
 p {
   line-height: 1.6em;
+}
+
+main {
+  margin-bottom: 280px;
 }
 
 .education {
@@ -57,17 +61,6 @@ a {
 .site-branding {
   display: flex;
   align-items: center;
-}
-
-#container {
-  max-width: 1200px;
-  margin: 0px 100px;
-}
-
-.content-area {
-  float: left;
-  width: 100%;
-  max-width: 900px;
 }
 
 .about {
@@ -96,11 +89,16 @@ a {
 
 #container {
   min-height: 100vh;
-  padding: 0 40px;
+  max-width: 1200px;
+  margin: 0 140px;
   text-align: left;
   position: absolute;
   left: 0;
   top: 0;
+}
+
+@media screen and (max-width: 800px) {
+  #container { margin: 0 40px; }
 }
 
 #logo {
@@ -114,8 +112,8 @@ a {
 }
 
 footer {
-  position: absolute;
-  bottom: 20px;
+  position: relative;
+  margin: 100px 0;
   color: #656d78;
   font-size: 14px;
 }

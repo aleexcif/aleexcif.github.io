@@ -1,0 +1,52 @@
+html {
+    font-family: acumin-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+}
+
+body {
+    size: 100vh;
+    background-image: url(./images/circuits/circuits-pattern-white.svg);
+    background-size: cover;
+    background-color: #0a0b0c;    
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.section {
+    margin: 100px;
+}
+
+.logo-text {
+    height: 20px;
+}
+
+.logo-memoji {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 2px solid #00c1a1;
+}
+
+a:hover {
+    color: #00c1a1;
+}
+
+main h2 {
+    font-weight: 400;
+    font-size: 35px;
+    width: 886px;
+    margin-bottom: 100px;
+}
+
+main p {
+    font-size: 18px;
+    width: 886px;
+}

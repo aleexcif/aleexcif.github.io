@@ -10,6 +10,8 @@ font-weight:
 */
 
 html {
+  margin: 0px;
+  padding: 0px;
   font-family: "MessinaSans", sans-serif;
   font-weight: 300;
   color: #f5f7fa;
@@ -17,15 +19,18 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
+  background-image: url(./images/universe/Universe-8K.png);
+  background-position: top left;
+  background-size: cover;
+  background-repeat: repeat;
+  background-color: #0f0b37;
+}
+
+#overlay {
   position: absolute;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0b0c0d;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -90,23 +95,14 @@ a {
 #container {
   min-height: 100vh;
   max-width: 1200px;
-  margin: 0 140px;
+  margin: 0 100px;
   text-align: left;
-  position: absolute;
-  left: 0;
-  top: 0;
+  
 }
 
 .language {
   font-weight: 700;
   margin-bottom: 50px;
-}
-
-@media screen and (max-width: 850px) {
-  main { margin-bottom: 40px; }
-  #logo { min-height: 22px; }
-  #container { margin: 0 40px; }
-  footer { max-width: 400px; }
 }
 
 #logo {

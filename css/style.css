@@ -5,9 +5,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Departure Mono';
+    src: url('../fonts/departure-mono/DepartureMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Global styles */
 body {
-    font-family: "dico-mono", mono;
+    font-family: 'Departure Mono', 'dico-mono', mono;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -63,7 +70,7 @@ footer {
 
 /* Class styles */
 .hero-title {
-  margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .hero-image {

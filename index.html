@@ -21,6 +21,28 @@
         <p>Technical Support Engineer <a href="https://www.whatconverts.com" target="_blank">@WhatConverts</a></p>
         <br>
         <h2>Typeform Testing Page</h2>
+        <!-- Typeform Cross Domain Tracking Script -->
+        <script>
+            jQuery(function () {
+                var c = oqhaqzwnbjgcpycneryg('wc_client');
+                var a = [];
+                if (c) {
+                    var p = c.split('+..+');
+                    if (p[0]) a.push('source=' + encodeURIComponent(p[0]));
+                    if (p[1]) a.push('medium=' + encodeURIComponent(p[1]));
+                    if (p[2]) a.push('campaign=' + encodeURIComponent(p[2]));
+                    if (p[3]) a.push('content=' + encodeURIComponent(p[3]));
+                    if (p[4]) a.push('keyword=' + encodeURIComponent(p[4]));
+                    if (p[5]) a.push('gclid=' + encodeURIComponent(p[5]));
+                    if (p[6]) a.push('landing_page=' + encodeURIComponent(p[6]));
+                    if (p[7]) a.push('user_id=' + encodeURIComponent(p[7]));
+                    if (p[8]) a.push('msclkid=' + encodeURIComponent(p[8]));
+                    if (p[9]) a.push('fbclkid=' + encodeURIComponent(p[9]));
+                }
+                if (a.length) jQuery('#ref-form').attr('data-tf-hidden', a.join('&'));
+                jQuery('.typeform').on('click', function () { jQuery('#ref-form').click(); });
+            });
+        </script>
         <div data-tf-live="01K4NCXPGSEX3FFTY4NPDPMGZ1" data-tf-transitive-search-params></div>
         <script src="//embed.typeform.com/next/embed.js"></script>
 

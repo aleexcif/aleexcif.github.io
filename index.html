@@ -23,30 +23,29 @@
         <h2>Typeform Testing Page</h2>
         <!-- Typeform Cross Domain Tracking Script -->
         <div id="tf" data-tf-live="01K4NCXPGSEX3FFTY4NPDPMGZ1"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>
-            jQuery(document).ready(function () {
-                var cookie = oqhaqzwnbjgcpycneryg("wc_client");
-                var final_params = "";
-
-                if (cookie) {
-                    var cookie_parts = cookie.split("+..+");
-                    if (cookie_parts[0]) final_params += "&utm_source=" + encodeURIComponent(cookie_parts[0]);
-                    if (cookie_parts[1]) final_params += "&utm_medium=" + encodeURIComponent(cookie_parts[1]);
-                    if (cookie_parts[2]) final_params += "&utm_campaign=" + encodeURIComponent(cookie_parts[2]);
-                    if (cookie_parts[3]) final_params += "&utm_content=" + encodeURIComponent(cookie_parts[3]);
-                    if (cookie_parts[4]) final_params += "&utm_term=" + encodeURIComponent(cookie_parts[4]);
-                    if (cookie_parts[5]) final_params += "&gclid=" + encodeURIComponent(cookie_parts[5]);
-                    if (cookie_parts[6]) final_params += "&landing_page=" + encodeURIComponent(cookie_parts[6]);
-                    if (cookie_parts[7]) final_params += "&user_id=" + encodeURIComponent(cookie_parts[7]);
-                    if (cookie_parts[8]) final_params += "&msclkid=" + encodeURIComponent(cookie_parts[8]);
-                    if (cookie_parts[9]) final_params += "&fbclid=" + encodeURIComponent(cookie_parts[9]);
-                }
-
-                if (final_params) {
-                    document.getElementById("tf").setAttribute("data-tf-hidden", final_params.substring(1));
-                }
-            });
+            var el = document.getElementById('tf');
+            var cookie = null;
+            if (typeof oqhaqzwnbjgcpycneryg === 'function') { cookie = oqhaqzwnbjgcpycneryg('wc_client'); }
+            if (!cookie) {
+                var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
+                if (m && m[1]) cookie = decodeURIComponent(m[1]);
+            }
+            var pairs = [];
+            if (cookie) {
+                var p = cookie.split('+..+');
+                if (p[0]) pairs.push('utm_source=' + encodeURIComponent(p[0]));
+                if (p[1]) pairs.push('utm_medium=' + encodeURIComponent(p[1]));
+                if (p[2]) pairs.push('utm_campaign=' + encodeURIComponent(p[2]));
+                if (p[3]) pairs.push('utm_content=' + encodeURIComponent(p[3]));
+                if (p[4]) pairs.push('utm_term=' + encodeURIComponent(p[4]));
+                if (p[5]) pairs.push('gclid=' + encodeURIComponent(p[5]));
+                if (p[6]) pairs.push('landing_page=' + encodeURIComponent(p[6]));
+                if (p[7]) pairs.push('user_id=' + encodeURIComponent(p[7]));
+                if (p[8]) pairs.push('msclkid=' + encodeURIComponent(p[8]));
+                if (p[9]) pairs.push('fbclid=' + encodeURIComponent(p[9]));
+            }
+            if (pairs.length) el.setAttribute('data-tf-hidden', pairs.join(','));
         </script>
         <script src="//embed.typeform.com/next/embed.js"></script>
 

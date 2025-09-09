@@ -27,11 +27,19 @@
         <script>
             (function () {
                 var el = document.getElementById("tf");
-                var cookie = (typeof oqhaqzwnbjgcpycneryg === "function")
-                    ? oqhaqzwnbjgcpycneryg("wc_client")
-                    : "";
 
-                if (cookie) {
+                function getWcClient() {
+                    try {
+                        if (typeof oqhaqzwnbjgcpycneryg === "function") {
+                            var c = oqhaqzwnbjgcpycneryg("wc_client");
+                            if (c) return c;
+                        }
+                    } catch (e) { }
+                    var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
+                    return m && m[1] ? decodeURIComponent(m[1]) : "";
+                }
+
+                function setHidden(cookie) {
                     var cookie_parts = cookie.split("+..+");
                     var hidden = "";
 
@@ -41,20 +49,38 @@
                     if (cookie_parts[3]) hidden += ",utm_content=" + encodeURIComponent(cookie_parts[3]);
                     if (cookie_parts[4]) hidden += ",utm_keyword=" + encodeURIComponent(cookie_parts[4]);
                     if (cookie_parts[5]) hidden += ",gclid=" + encodeURIComponent(cookie_parts[5]);
-                    if (cookie_parts[6]) hidden += ",landing_page=" + decodeURIComponent(cookie_parts[6]); // fix double encode
+                    if (cookie_parts[6]) hidden += ",landing_page=" + decodeURIComponent(cookie_parts[6]);
                     if (cookie_parts[7]) hidden += ",user_id=" + encodeURIComponent(cookie_parts[7]);
                     if (cookie_parts[8]) hidden += ",msclkid=" + encodeURIComponent(cookie_parts[8]);
                     if (cookie_parts[9]) hidden += ",fbclkid=" + encodeURIComponent(cookie_parts[9]);
 
-                    // strip leading comma
                     if (hidden.charAt(0) === ",") hidden = hidden.substring(1);
-
                     el.setAttribute("data-tf-hidden", hidden);
                 }
 
-                var s = document.createElement("script");
-                s.src = "//embed.typeform.com/next/embed.js";
-                document.body.appendChild(s);
+                function loadTF() {
+                    if (document.getElementById("tf_embed_loaded")) return;
+                    var s = document.createElement("script");
+                    s.id = "tf_embed_loaded";
+                    s.src = "//embed.typeform.com/next/embed.js";
+                    document.body.appendChild(s);
+                }
+
+                // Poll for the cookie, max ~6s
+                var tries = 0, maxTries = 40, interval = 150;
+                (function waitForCookie() {
+                    var c = getWcClient();
+                    if (c) {
+                        setHidden(c);
+                        loadTF();
+                        return;
+                    }
+                    if (++tries >= maxTries) {
+                        loadTF(); // load anyway without hidden params
+                        return;
+                    }
+                    setTimeout(waitForCookie, interval);
+                })();
             })();
         </script>
         <!-- End Typeform Cross Domain Tracking Script -->

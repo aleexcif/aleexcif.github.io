@@ -27,10 +27,12 @@
             var el = document.getElementById('tf');
 
             function getWcClient() {
-                if (typeof oqhaqzwnbjgcpycneryg === 'function') {
-                    var c = oqhaqzwnbjgcpycneryg('wc_client');
-                    if (c) return c;
-                }
+                try {
+                    if (typeof oqhaqzwnbjgcpycneryg === 'function') {
+                        var c = oqhaqzwnbjgcpycneryg('wc_client');
+                        if (c) return c;
+                    }
+                } catch (e) { }
                 var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
                 return m && m[1] ? decodeURIComponent(m[1]) : '';
             }
@@ -42,28 +44,29 @@
                 if (p[1]) a.push('utm_medium=' + encodeURIComponent(p[1]));
                 if (p[2]) a.push('utm_campaign=' + encodeURIComponent(p[2]));
                 if (p[3]) a.push('utm_content=' + encodeURIComponent(p[3]));
-                if (p[4]) a.push('utm_term=' + encodeURIComponent(p[4]));
+                if (p[4]) a.push('utm_keyword=' + encodeURIComponent(p[4])); // your key
                 if (p[5]) a.push('gclid=' + encodeURIComponent(p[5]));
                 if (p[6]) a.push('landing_page=' + encodeURIComponent(p[6]));
                 if (p[7]) a.push('user_id=' + encodeURIComponent(p[7]));
                 if (p[8]) a.push('msclkid=' + encodeURIComponent(p[8]));
-                if (p[9]) a.push('fbclid=' + encodeURIComponent(p[9]));
+                if (p[9]) a.push('fbclkid=' + encodeURIComponent(p[9])); // your key
                 return a.join(',');
             }
 
-            (function waitForCookieThenLoad() {
-                var tries = 0, max = 40, interval = 150; // ~6s max
-
+            (function init() {
+                var tries = 0, max = 40, interval = 150; // ~6s
                 (function poll() {
                     var c = getWcClient();
                     if (c) {
+                        console.log('[WC] wc_client:', c);
                         var hidden = buildHidden(c);
+                        console.log('[WC] data-tf-hidden:', hidden);
                         if (hidden) el.setAttribute('data-tf-hidden', hidden);
                         loadTF();
                         return;
                     }
                     if (++tries >= max) {
-                        // Cookie never appeared; load TF without hidden params
+                        console.warn('[WC] wc_client not found after wait; loading TF without hidden params');
                         loadTF();
                         return;
                     }

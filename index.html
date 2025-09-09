@@ -25,29 +25,60 @@
         <div id="tf" data-tf-live="01K4NCXPGSEX3FFTY4NPDPMGZ1"></div>
         <script>
             var el = document.getElementById('tf');
-            var cookie = null;
-            if (typeof oqhaqzwnbjgcpycneryg === 'function') { cookie = oqhaqzwnbjgcpycneryg('wc_client'); }
-            if (!cookie) {
+
+            function getWcClient() {
+                if (typeof oqhaqzwnbjgcpycneryg === 'function') {
+                    var c = oqhaqzwnbjgcpycneryg('wc_client');
+                    if (c) return c;
+                }
                 var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
-                if (m && m[1]) cookie = decodeURIComponent(m[1]);
+                return m && m[1] ? decodeURIComponent(m[1]) : '';
             }
-            var pairs = [];
-            if (cookie) {
-                var p = cookie.split('+..+');
-                if (p[0]) pairs.push('utm_source=' + encodeURIComponent(p[0]));
-                if (p[1]) pairs.push('utm_medium=' + encodeURIComponent(p[1]));
-                if (p[2]) pairs.push('utm_campaign=' + encodeURIComponent(p[2]));
-                if (p[3]) pairs.push('utm_content=' + encodeURIComponent(p[3]));
-                if (p[4]) pairs.push('utm_term=' + encodeURIComponent(p[4]));
-                if (p[5]) pairs.push('gclid=' + encodeURIComponent(p[5]));
-                if (p[6]) pairs.push('landing_page=' + encodeURIComponent(p[6]));
-                if (p[7]) pairs.push('user_id=' + encodeURIComponent(p[7]));
-                if (p[8]) pairs.push('msclkid=' + encodeURIComponent(p[8]));
-                if (p[9]) pairs.push('fbclid=' + encodeURIComponent(p[9]));
+
+            function buildHidden(c) {
+                var p = c.split('+..+');
+                var a = [];
+                if (p[0]) a.push('utm_source=' + encodeURIComponent(p[0]));
+                if (p[1]) a.push('utm_medium=' + encodeURIComponent(p[1]));
+                if (p[2]) a.push('utm_campaign=' + encodeURIComponent(p[2]));
+                if (p[3]) a.push('utm_content=' + encodeURIComponent(p[3]));
+                if (p[4]) a.push('utm_term=' + encodeURIComponent(p[4]));
+                if (p[5]) a.push('gclid=' + encodeURIComponent(p[5]));
+                if (p[6]) a.push('landing_page=' + encodeURIComponent(p[6]));
+                if (p[7]) a.push('user_id=' + encodeURIComponent(p[7]));
+                if (p[8]) a.push('msclkid=' + encodeURIComponent(p[8]));
+                if (p[9]) a.push('fbclid=' + encodeURIComponent(p[9]));
+                return a.join(',');
             }
-            if (pairs.length) el.setAttribute('data-tf-hidden', pairs.join(','));
+
+            (function waitForCookieThenLoad() {
+                var tries = 0, max = 40, interval = 150; // ~6s max
+
+                (function poll() {
+                    var c = getWcClient();
+                    if (c) {
+                        var hidden = buildHidden(c);
+                        if (hidden) el.setAttribute('data-tf-hidden', hidden);
+                        loadTF();
+                        return;
+                    }
+                    if (++tries >= max) {
+                        // Cookie never appeared; load TF without hidden params
+                        loadTF();
+                        return;
+                    }
+                    setTimeout(poll, interval);
+                })();
+            })();
+
+            function loadTF() {
+                if (document.getElementById('tf_embed_loaded')) return;
+                var s = document.createElement('script');
+                s.id = 'tf_embed_loaded';
+                s.src = '//embed.typeform.com/next/embed.js';
+                document.body.appendChild(s);
+            }
         </script>
-        <script src="//embed.typeform.com/next/embed.js"></script>
 
 </body>
 <footer class="footer">

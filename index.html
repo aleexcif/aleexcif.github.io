@@ -24,22 +24,15 @@
 
         <!-- Typeform Cross Domain Tracking Script -->
         <div id="tf" data-tf-live="01K4NCXPGSEX3FFTY4NPDPMGZ1"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>
-            (function () {
+            jQuery(document).ready(function () {
                 var el = document.getElementById("tf");
+                var cookie = (typeof oqhaqzwnbjgcpycneryg === "function")
+                    ? oqhaqzwnbjgcpycneryg("wc_client")
+                    : "";
 
-                function getWcClient() {
-                    try {
-                        if (typeof oqhaqzwnbjgcpycneryg === "function") {
-                            var c = oqhaqzwnbjgcpycneryg("wc_client");
-                            if (c) return c;
-                        }
-                    } catch (e) { }
-                    var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
-                    return m && m[1] ? decodeURIComponent(m[1]) : "";
-                }
-
-                function setHidden(cookie) {
+                if (cookie) {
                     var cookie_parts = cookie.split("+..+");
                     var hidden = "";
 
@@ -58,30 +51,10 @@
                     el.setAttribute("data-tf-hidden", hidden);
                 }
 
-                function loadTF() {
-                    if (document.getElementById("tf_embed_loaded")) return;
-                    var s = document.createElement("script");
-                    s.id = "tf_embed_loaded";
-                    s.src = "//embed.typeform.com/next/embed.js";
-                    document.body.appendChild(s);
-                }
-
-                // Poll for the cookie, max ~6s
-                var tries = 0, maxTries = 40, interval = 150;
-                (function waitForCookie() {
-                    var c = getWcClient();
-                    if (c) {
-                        setHidden(c);
-                        loadTF();
-                        return;
-                    }
-                    if (++tries >= maxTries) {
-                        loadTF(); // load anyway without hidden params
-                        return;
-                    }
-                    setTimeout(waitForCookie, interval);
-                })();
-            })();
+                var s = document.createElement("script");
+                s.src = "//embed.typeform.com/next/embed.js";
+                document.body.appendChild(s);
+            });
         </script>
         <!-- End Typeform Cross Domain Tracking Script -->
 

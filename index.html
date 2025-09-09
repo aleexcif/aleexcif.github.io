@@ -25,34 +25,35 @@
         <!-- Typeform Cross Domain Tracking Script -->
         <div id="tf" data-tf-live="01K4NCXPGSEX3FFTY4NPDPMGZ1"></div>
         <script>
-            var el = document.getElementById('tf');
-
-            function getWcClient() {
-                try { if (typeof oqhaqzwnbjgcpycneryg === 'function') { var c = oqhaqzwnbjgcpycneryg('wc_client'); if (c) return c; } } catch (e) { }
-                var m = document.cookie.match(/(?:^|;\s*)wc_client=([^;]+)/);
-                return m && m[1] ? decodeURIComponent(m[1]) : '';
-            }
-
-            function normalize(v) { try { return encodeURIComponent(decodeURIComponent(v)); } catch (e) { return encodeURIComponent(v); } }
-
             (function () {
-                var c = getWcClient();
-                if (c) {
-                    var p = c.split('+..+'), a = [];
-                    if (p[0]) a.push('utm_source=' + normalize(p[0]));
-                    if (p[1]) a.push('utm_medium=' + normalize(p[1]));
-                    if (p[2]) a.push('utm_campaign=' + normalize(p[2]));
-                    if (p[3]) a.push('utm_content=' + normalize(p[3]));
-                    if (p[4]) a.push('utm_keyword=' + normalize(p[4])); // keep your key
-                    if (p[5]) a.push('gclid=' + normalize(p[5]));
-                    if (p[6]) a.push('landing_page=' + normalize(p[6])); // prevent double-encoding
-                    if (p[7]) a.push('user_id=' + normalize(p[7]));
-                    if (p[8]) a.push('msclkid=' + normalize(p[8]));
-                    if (p[9]) a.push('fbclkid=' + normalize(p[9]));      // keep your key
-                    el.setAttribute('data-tf-hidden', a.join(','));
+                var el = document.getElementById("tf");
+                var cookie = (typeof oqhaqzwnbjgcpycneryg === "function")
+                    ? oqhaqzwnbjgcpycneryg("wc_client")
+                    : "";
+
+                if (cookie) {
+                    var cookie_parts = cookie.split("+..+");
+                    var hidden = "";
+
+                    if (cookie_parts[0]) hidden += ",utm_source=" + encodeURIComponent(cookie_parts[0]);
+                    if (cookie_parts[1]) hidden += ",utm_medium=" + encodeURIComponent(cookie_parts[1]);
+                    if (cookie_parts[2]) hidden += ",utm_campaign=" + encodeURIComponent(cookie_parts[2]);
+                    if (cookie_parts[3]) hidden += ",utm_content=" + encodeURIComponent(cookie_parts[3]);
+                    if (cookie_parts[4]) hidden += ",utm_keyword=" + encodeURIComponent(cookie_parts[4]);
+                    if (cookie_parts[5]) hidden += ",gclid=" + encodeURIComponent(cookie_parts[5]);
+                    if (cookie_parts[6]) hidden += ",landing_page=" + decodeURIComponent(cookie_parts[6]); // fix double encode
+                    if (cookie_parts[7]) hidden += ",user_id=" + encodeURIComponent(cookie_parts[7]);
+                    if (cookie_parts[8]) hidden += ",msclkid=" + encodeURIComponent(cookie_parts[8]);
+                    if (cookie_parts[9]) hidden += ",fbclkid=" + encodeURIComponent(cookie_parts[9]);
+
+                    // strip leading comma
+                    if (hidden.charAt(0) === ",") hidden = hidden.substring(1);
+
+                    el.setAttribute("data-tf-hidden", hidden);
                 }
-                var s = document.createElement('script');
-                s.src = '//embed.typeform.com/next/embed.js';
+
+                var s = document.createElement("script");
+                s.src = "//embed.typeform.com/next/embed.js";
                 document.body.appendChild(s);
             })();
         </script>
